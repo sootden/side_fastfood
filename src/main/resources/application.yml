@@ -1,0 +1,27 @@
+server:
+  shutdown: graceful
+  lifecycle:
+    timeout-per-shutdown-phase: 30s
+  tomcat:
+    basedir: log/accesslog
+    accesslog:
+      enabled: true
+      pattern: "%{yyyy-MM-dd HH:mm:ss}t\\%s\\%r\\%{User-Agent}i\\%{Referer}i\\%a\\%b"
+
+spring:
+  profiles:
+    active: local
+  main:
+    lazy-initialization: true
+  ai:
+    openai:
+      api-key: ${AI_API_KEY}
+      embedding:
+        options:
+          model: text-embedding-ada-002
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+
+
+

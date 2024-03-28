@@ -1,0 +1,14 @@
+# Server 설정
+server:
+  port: 8080
+  servlet:
+    encoding:
+      charset: UTF-8
+# 로깅 설정
+# TRACE -> DEBUG -> INFO -> WARN -> ERROR
+logging:
+  level:
+    root: INFO
+
+
+
