@@ -2,20 +2,24 @@ package com.ponyo.fastfood.service;
 
 import com.ponyo.fastfood.domain.PlaceDTO;
 import com.ponyo.fastfood.domain.ReviewDTO;
+import com.ponyo.fastfood.repository.PlaceRepository;
+import com.ponyo.fastfood.repository.ReviewRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.embedding.EmbeddingClient;
-import org.springframework.ai.embedding.EmbeddingResponse;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class EmbeddingServiceImpl implements EmbeddingService{
 
     private final EmbeddingClient embeddingClient;
-
+    private final PlaceRepository placeRepository;
+    private final ReviewRepository reviewRepository;
 
     @Override
     public void embedding(HashMap<String, Object> data) {
@@ -29,11 +33,20 @@ public class EmbeddingServiceImpl implements EmbeddingService{
 
             place.setMenuEmb(menuEmb);
             place.setPlaceInfoEmb(placeInfoEmb);
+
+            place = placeRepository.insert(place);
+            log.info("place id:{}, place name: {}", place.get_id(), place.getName());
         }
         for(ReviewDTO review: reviewList){
-            List<Double> reviewVector = embeddingClient.embed(review.getReview());
-            double[] reviewEmb = reviewVector.stream().mapToDouble(Double::doubleValue).toArray();
-            review.setReviewEmb(reviewEmb);
+            if(review.getReview().trim().length() > 0){
+                log.info("review : {}",review.getReview());
+                List<Double> reviewVector = embeddingClient.embed(review.getReview());
+                double[] reviewEmb = reviewVector.stream().mapToDouble(Double::doubleValue).toArray();
+                review.setReviewEmb(reviewEmb);
+                review = reviewRepository.insert(review);
+                log.info("review id:{}, review place id: {}, review: {}", review.get_id(), review.getPlaceId(), review.getReview());
+            }
         }
+        log.info("**embedding success**");
     }
 }

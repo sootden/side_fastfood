@@ -13,15 +13,6 @@ spring:
     active: local
   main:
     lazy-initialization: true
-  ai:
-    openai:
-      api-key: ${AI_API_KEY}
-      embedding:
-        options:
-          model: text-embedding-ada-002
-mybatis:
-  configuration:
-    map-underscore-to-camel-case: true
 
 
 

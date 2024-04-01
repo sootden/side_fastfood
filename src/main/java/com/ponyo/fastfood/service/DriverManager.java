@@ -206,7 +206,7 @@ public class DriverManager {
                 driver.switchTo().window(tabs.get(0));
 
                 PlaceDTO place = new PlaceDTO();
-                place.setId(placeId);
+                place.setPlaceId(placeId);
                 place.setName(name);
                 place.setAddr(addr);
                 place.setTel(tel);

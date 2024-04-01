@@ -16,7 +16,7 @@ import java.util.HashMap;
 
 @Controller
 @RequiredArgsConstructor
-@CrossOrigin(origins = {"http://localhost:8080"}, allowCredentials= "true")
+@CrossOrigin(origins = {"http://localhost:8888"}, allowCredentials= "true")
 public class MainController {
     private final MainService service;
     private final EmbeddingService embeddingService;
@@ -26,7 +26,7 @@ public class MainController {
     public ResponseEntity test(){
         HashMap<String, Object> data = service.crawlFromKakao();
         // 2) 벡터 임베딩 & 적재 : 메뉴, 시설정보, 리뷰
-//        embeddingService.embedding(data);
+        embeddingService.embedding(data);
         return new ResponseEntity<>("", HttpStatus.OK);
     }
 

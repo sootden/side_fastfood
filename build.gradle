@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.2.2'
+    id 'org.springframework.boot' version '3.2.1'
     id 'io.spring.dependency-management' version '1.1.4'
 }
 
@@ -25,8 +25,10 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
-    implementation 'org.projectlombok:lombok:1.18.22'
+//    implementation'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.projectlombok:lombok:1.18.22'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     // Selenium(Crawler) 추가
@@ -45,6 +47,10 @@ dependencies {
     implementation 'io.milvus:milvus-sdk-java:2.3.4'
     //ai
     implementation 'org.springframework.ai:spring-ai-openai-spring-boot-starter:0.8.0-SNAPSHOT'
+    //mongodb
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
+//    implementation 'org.hibernate.ogm:hibernate-ogm-mongodb:5.4.1.Final'
+//    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
 }
 
 test {
