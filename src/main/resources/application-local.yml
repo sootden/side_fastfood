@@ -24,3 +24,9 @@ spring:
       password: ${DB_PWD}
       database: fastfood
 
+elasticsearch:
+  url: "${ES_HOST}:${ES_PORT}"
+  username: ${ES_USER}
+  password : ${ES_PWD}
+
+

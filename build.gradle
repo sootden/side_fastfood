@@ -44,13 +44,14 @@ dependencies {
     implementation 'com.google.code.geocoder-java:geocoder-java:0.16'
     implementation 'org.json:json:20231013'
     implementation 'com.googlecode.json-simple:json-simple:1.1.1'
-    implementation 'io.milvus:milvus-sdk-java:2.3.4'
     //ai
     implementation 'org.springframework.ai:spring-ai-openai-spring-boot-starter:0.8.0-SNAPSHOT'
     //mongodb
-    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
+//    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
 //    implementation 'org.hibernate.ogm:hibernate-ogm-mongodb:5.4.1.Final'
-//    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+//    implementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch'
+    implementation 'org.springframework.data:spring-data-elasticsearch:4.2.2'
 }
 
 test {

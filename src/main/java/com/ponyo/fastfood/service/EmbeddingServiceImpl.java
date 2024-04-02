@@ -1,9 +1,9 @@
 package com.ponyo.fastfood.service;
 
-import com.ponyo.fastfood.domain.PlaceDTO;
-import com.ponyo.fastfood.domain.ReviewDTO;
-import com.ponyo.fastfood.repository.PlaceRepository;
-import com.ponyo.fastfood.repository.ReviewRepository;
+import com.ponyo.fastfood.domain.mongo.PlaceDTO;
+import com.ponyo.fastfood.domain.mongo.ReviewDTO;
+import com.ponyo.fastfood.repository.mongo.PlaceRepository;
+import com.ponyo.fastfood.repository.mongo.ReviewRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.embedding.EmbeddingClient;

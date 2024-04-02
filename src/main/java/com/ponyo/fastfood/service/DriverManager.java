@@ -1,8 +1,8 @@
 package com.ponyo.fastfood.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ponyo.fastfood.domain.PlaceDTO;
-import com.ponyo.fastfood.domain.ReviewDTO;
+import com.ponyo.fastfood.domain.mongo.PlaceDTO;
+import com.ponyo.fastfood.domain.mongo.ReviewDTO;
 import com.ponyo.fastfood.util.ExcelHelper;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import jakarta.annotation.PostConstruct;

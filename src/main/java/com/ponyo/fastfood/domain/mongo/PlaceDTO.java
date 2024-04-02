@@ -1,4 +1,4 @@
-package com.ponyo.fastfood.domain;
+package com.ponyo.fastfood.domain.mongo;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
@@ -22,21 +22,17 @@ public class PlaceDTO {
     String addr;
     String tel;
     String degree;
-    @Transient
     String menu;
-    @Transient
     String placeInfo;
     String period;
     @NotBlank
     String latlon;
 
     @NotBlank
-    @Field(name="menu")
     @ToString.Exclude
     double[] menuEmb;
 
     @NotBlank
-    @Field(name="placeInfo")
     @ToString.Exclude
     double[] placeInfoEmb;
 }
