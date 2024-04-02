@@ -22,7 +22,7 @@ public class MainController {
     private final EmbeddingService embeddingService;
 
 //    @Scheduled(cron = "0 0 0 * * *")
-    @GetMapping("/test")
+    @GetMapping("/data")
     public ResponseEntity test(){
         HashMap<String, Object> data = service.crawlFromKakao();
         // 2) 벡터 임베딩 & 적재 : 메뉴, 시설정보, 리뷰
@@ -30,7 +30,7 @@ public class MainController {
         return new ResponseEntity<>("", HttpStatus.OK);
     }
 
-    @GetMapping("/")
+    @GetMapping("/search")
     public ResponseEntity getStoreList(HttpServletRequest req){
         // 검색/키워드 조건 + 현재 위치 매칭
         // 1) 현재 위치에 매칭되는 음식점 조회

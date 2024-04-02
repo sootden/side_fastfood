@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
@@ -17,10 +18,11 @@ import java.util.Map;
 @Slf4j
 @Controller
 @RequiredArgsConstructor
+@RequestMapping("/ai")
 public class EmbeddingController {
     private final EmbeddingClient embeddingClient;
 
-    @GetMapping("/ai/embedding")
+    @GetMapping("/embedding")
     public ResponseEntity embed(@RequestParam(value = "message", defaultValue = "Tell me a joke") String message) {
 //        EmbeddingResponse embeddingResponse = embeddingClient.embedForResponse(List.of(message));
         List<Double> result = embeddingClient.embed(message);
